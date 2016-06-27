@@ -1,46 +1,24 @@
 import java.util.*;
 
 public class MinimumDistances {
-
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 Scanner in = new Scanner(System.in);
+		/* Scanner in = new Scanner(System.in);
 	        int n = in.nextInt();
 	        int A[] = new int[n];
 	        for(int A_i=0; A_i < n; A_i++){
 	            A[A_i] = in.nextInt();
 	        }
-	      /*  
-	        int result = -1;
-	        
-	        
-	        HashMap<Integer, Integer> map = new HashMap <>();
-	        
-	        
-	        for (int i = 0; i < A.length; i++){
-	            int key = A[i];
-	            
-	            if(map.containsKey(key)){
-	                int realKey = map.get(key);
-	                map.put(key, realKey+1);
-	                System.out.print(realKey);
-	            }else{
-	                map.put(A[i], 1);
-	            }
-	        }
-	        //remove all non duplicated
-	        Iterator iter = map.entrySet().iterator();
-	        
-	        while(iter.hasNext()){
-	            Map.Entry pair = (Map.Entry)iter.next();            
-	            Integer numOccured = (Integer) pair.getValue();          
-	            if(numOccured <= 1){
-	                iter.remove();
-	            }
-	        }
-	        
 	        */
-	        //System.out.println("=========================================");
+	      //int A[] = {1,7,3,3,7,1};
+	      
+	      //int A[] = {1,2,3,4,5,6,7,8,9};
+		//int A[] = {1,1,1,1,1,1,1};
+		//int A[] = {1};
+		int A[] = {};
+	    
 	        HashMap<Integer, List<Integer>> dups = new HashMap <>();
 	        
 	        for (int a = 0; a < A.length; a++){
@@ -62,34 +40,26 @@ public class MinimumDistances {
 	        
 	        while(i.hasNext()){
 	            Map.Entry p = (Map.Entry)i.next();            
-	            List <Integer> list = (List<Integer>) p.getValue();          
-	           // System.out.print(p.getKey() + " - ");
-	            //for (List<Integer> l: list){
-	            //    System.out.print (l + ", ");
-	            //}
-	            
-	            //for (int b = 0; b < list.size(); b++){
-	            //    System.out.print (list.get(b) + ", ");
-	           // }
-	           // System.out.print("\n");
+	            List <Integer> list = (List<Integer>) p.getValue();   
 	            
 	            if(list.size() > 1){
 	                  for (int b = 1; b < list.size(); b++){
-	                        //System.out.print (list.get(b) + ", ");
+	                	  //System.out.println(list.get(b-1) +"-"+ list.get(b)+" = " + Math.abs(list.get(b-1) - list.get(b)));
 	                      int newSmall = Math.abs(list.get(b-1) - list.get(b));
-	                      if(smallest != -1 && smallest >= newSmall){
-	                          smallest = newSmall;
+	                      if(smallest != -1){
+	                    	  if (smallest >= newSmall){
+	                    		  smallest = newSmall;
+	                    	  }
+	                      }else{
+	                    	  smallest = newSmall;
 	                      }
 	                        
 	                    }
 	            }
 	        }
 	        
-	        
-	        //Empty map
-	        //if(map.isEmpty()){
 	            System.out.printf("%s", smallest);
-	       // }
+	      
 	        
 
 	}
